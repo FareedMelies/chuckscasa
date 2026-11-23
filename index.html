@@ -25,6 +25,7 @@
     --pop:#FF5B23;
   }
   *{box-sizing:border-box}
+  [hidden]{display:none!important}
   html{-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:Geist,Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
@@ -46,6 +47,9 @@
   .card:active{transform:scale(.99)}
   .media{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--chip)}
   .media img{width:100%;height:100%;object-fit:cover}
+  .yt-fallback{position:absolute;inset:0;background:var(--ink);display:flex;align-items:flex-end;padding:16px;gap:10px}
+  .yt-fallback img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;opacity:.55}
+  .yt-fallback span{position:relative;color:#fff;font-weight:700;font-size:18px;letter-spacing:-.01em}
   .play{position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:999px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.25)}
   .tag{position:absolute;left:10px;top:10px;background:rgba(255,255,255,.92);color:var(--ink);font-size:12px;font-weight:600;border-radius:999px;padding:5px 10px}
   .body{padding:0 8px 8px;display:flex;flex-direction:column;gap:14px}
@@ -92,6 +96,10 @@
   <!-- Latest long-form video. Filled from latest.json, which a GitHub Action refreshes (Shorts skipped). Falls back to the channel. -->
   <a class="card" id="yt-card" href="https://www.youtube.com/@chuckscasa/videos" target="_blank" rel="noopener">
     <div class="media">
+      <div class="yt-fallback" id="yt-fallback" aria-hidden="true">
+        <img src="assets/chuck.jpg" alt="">
+        <span>@chuckscasa</span>
+      </div>
       <img id="yt-thumb" alt="" hidden>
       <span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
     </div>
@@ -157,6 +165,7 @@
       img.onerror = function () { img.onerror = null; img.src = 'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg'; };
       img.src = 'https://i.ytimg.com/vi/' + v.id + '/maxresdefault.jpg';
       img.hidden = false;
+      document.getElementById('yt-fallback').hidden = true;
     })
     .catch(function () {});
 })();
