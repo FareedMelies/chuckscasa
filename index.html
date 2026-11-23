@@ -22,7 +22,7 @@
   :root{
     --bg:#F4F4F1; --card:#FFFFFF; --line:#E6E6E1; --ink:#0D0D0D;
     --soft:#3D3D3A; --muted:#6B6B66; --chip:#ECECE7;
-    --pop:#FF5B23;
+    --pop:#FF5B23; --pop-ink:#FFFFFF;
   }
   *{box-sizing:border-box}
   [hidden]{display:none!important}
@@ -31,111 +31,127 @@
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
   svg{display:block}
-  .wrap{max-width:440px;margin:0 auto;padding:48px 16px calc(40px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:16px}
+  .wrap{max-width:440px;margin:0 auto;padding:28px 14px calc(110px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
 
-  .head{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;padding:0 8px 8px}
-  .avatar{width:96px;height:96px;border-radius:999px;object-fit:cover;box-shadow:0 0 0 4px var(--card),0 8px 24px rgba(0,0,0,.12)}
-  h1{margin:0;font-weight:800;font-size:34px;line-height:1.05;letter-spacing:-.035em}
-  .lead{margin:-6px 0 0;font-size:17px;line-height:1.4;color:var(--soft);font-weight:500}
-  .socials{display:flex;gap:8px}
-  .socials a{width:44px;height:44px;border-radius:999px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
-  .socials a:hover,.socials a:focus-visible{background:var(--ink);color:#fff}
-  .socials svg{width:19px;height:19px}
+  /* Header: kept short so the donate button lands above the fold */
+  .head{display:flex;align-items:center;gap:14px;padding:0 6px 4px}
+  .avatar{width:64px;height:64px;border-radius:999px;object-fit:cover;flex-shrink:0;box-shadow:0 0 0 3px var(--card),0 6px 18px rgba(0,0,0,.12)}
+  h1{margin:0;font-weight:800;font-size:25px;line-height:1.1;letter-spacing:-.03em}
+  .lead{margin:3px 0 0;font-size:14px;line-height:1.35;color:var(--soft);font-weight:500}
 
-  .card{display:flex;flex-direction:column;gap:14px;border-radius:24px;background:var(--card);border:1px solid var(--line);padding:10px;transition:transform .15s,box-shadow .15s}
-  .card:hover,.card:focus-visible{box-shadow:0 10px 30px rgba(0,0,0,.08)}
-  .card:active{transform:scale(.99)}
-  .media{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--chip)}
+  .card{display:flex;flex-direction:column;gap:14px;border-radius:24px;background:var(--card);border:1px solid var(--line);padding:10px}
+  .media{position:relative;display:block;width:100%;border-radius:16px;overflow:hidden;background:var(--chip)}
   .media img{width:100%;height:100%;object-fit:cover}
-  .yt-fallback{position:absolute;inset:0;background:var(--ink);display:flex;align-items:flex-end;padding:16px;gap:10px}
-  .yt-fallback img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;opacity:.55}
-  .yt-fallback span{position:relative;color:#fff;font-weight:700;font-size:18px;letter-spacing:-.01em}
+  .ji .media{aspect-ratio:2/1}
+  .yt .media{aspect-ratio:16/9}
   .play{position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:999px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.25)}
   .tag{position:absolute;left:10px;top:10px;background:rgba(255,255,255,.92);color:var(--ink);font-size:12px;font-weight:600;border-radius:999px;padding:5px 10px}
-  .body{padding:0 8px 8px;display:flex;flex-direction:column;gap:14px}
+  .body{padding:0 8px 8px;display:flex;flex-direction:column;gap:12px}
   .eyebrow{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--muted)}
   .eyebrow::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--pop)}
   .title{margin:4px 0 0;font-weight:700;font-size:22px;line-height:1.15;letter-spacing:-.02em}
   .desc{margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--soft)}
-  .btn{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--ink);color:#fff;border-radius:16px;padding:14px 18px;font-size:15px;font-weight:600;min-height:48px}
 
-  .about{margin-top:8px;border-radius:24px;background:var(--card);border:1px solid var(--line);padding:22px 20px;display:flex;flex-direction:column;gap:16px}
-  .about h2{margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .ctas{display:grid;grid-template-columns:1.4fr 1fr;gap:8px}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:14px;padding:13px 14px;font-size:15px;font-weight:600;min-height:50px;text-align:center}
+  .btn svg{width:18px;height:18px;flex-shrink:0}
+  .btn-pop{background:var(--pop);color:var(--pop-ink)}
+  .btn-ink{background:var(--ink);color:#fff}
+  .btn-ghost{background:var(--chip);color:var(--ink)}
+
+  /* Mini roadmap: builds trust right next to the donate ask */
+  .road{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:2px 0 0;padding:0;list-style:none}
+  .road li{border-radius:12px;background:var(--bg);padding:9px 10px;display:flex;flex-direction:column;gap:2px}
+  .road b{font-size:12px;font-weight:600;color:var(--muted)}
+  .road span{font-size:14px;font-weight:600}
+  .road em{font-style:normal;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}
+  .road em::before{content:"";width:6px;height:6px;border-radius:999px;background:#2FA55A}
+  .road li.soon em::before{background:#B9B9B3}
+
+  .about{margin-top:6px;border-radius:24px;background:var(--card);border:1px solid var(--line);padding:22px 20px;display:flex;flex-direction:column;gap:16px}
+  .about h2,.follow h2{margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
   .row{display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.45;color:var(--soft)}
   .ico{flex-shrink:0;width:36px;height:36px;border-radius:12px;background:var(--chip);display:flex;align-items:center;justify-content:center;color:var(--ink)}
   .ico svg{width:18px;height:18px}
   .row strong{display:block;color:var(--ink);font-weight:600}
 
-  .foot{margin:8px 0 0;text-align:center;font-size:12px;color:var(--muted)}
-  @media (prefers-reduced-motion:reduce){.card,.socials a{transition:none}.card:active{transform:none}}
+  .follow{display:flex;flex-direction:column;align-items:center;gap:12px;padding:10px 0 0}
+  .socials{display:flex;gap:8px}
+  .socials a{width:46px;height:46px;border-radius:999px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .socials svg{width:19px;height:19px}
+  .foot{margin:4px 0 0;text-align:center;font-size:12px;color:var(--muted)}
+
+  /* Sticky donate bar: appears once the main donate button scrolls away */
+  .sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--bg) 70%,rgba(244,244,241,0));transform:translateY(110%);transition:transform .25s ease}
+  .sticky.show{transform:none}
+  .sticky a{max-width:412px;margin:0 auto;box-shadow:0 10px 30px rgba(255,91,35,.35)}
+  @media (prefers-reduced-motion:reduce){.sticky{transition:none}}
 </style>
 </head>
 <body>
 <main class="wrap">
 
   <header class="head">
-    <img class="avatar" src="assets/chuck.jpg" alt="Chuck" width="96" height="96">
-    <h1>Hi, my name is Chuck.</h1>
-    <p class="lead">Here's everything you need to know 👇</p>
-    <nav class="socials" aria-label="Social links">
-      <a href="https://www.youtube.com/@chuckscasa" aria-label="YouTube" target="_blank" rel="noopener">
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg>
-      </a>
-      <a href="https://www.instagram.com/chuckscasa/" aria-label="Instagram" target="_blank" rel="noopener">
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
-      </a>
-      <a href="https://www.tiktok.com/@chuckscasa" aria-label="TikTok" target="_blank" rel="noopener">
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.4 4.6 5 5"/></svg>
-      </a>
-      <a href="mailto:f@fareedmelies.com" aria-label="Email">
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
-      </a>
-    </nav>
+    <img class="avatar" src="assets/chuck.jpg" alt="Chuck" width="64" height="64">
+    <div>
+      <h1>Hi, my name is Chuck.</h1>
+      <p class="lead">Here's everything you need&nbsp;to&nbsp;know&nbsp;👇</p>
+    </div>
   </header>
 
-  <!-- Latest long-form video. Filled from latest.json, which a GitHub Action refreshes (Shorts skipped). Falls back to the channel. -->
-  <a class="card" id="yt-card" href="https://www.youtube.com/@chuckscasa/videos" target="_blank" rel="noopener">
-    <div class="media">
-      <div class="yt-fallback" id="yt-fallback" aria-hidden="true">
-        <img src="assets/chuck.jpg" alt="">
-        <span>@chuckscasa</span>
-      </div>
-      <img id="yt-thumb" alt="" hidden>
-      <span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-    </div>
-    <div class="body">
-      <div>
-        <span class="eyebrow" id="yt-eyebrow">On YouTube</span>
-        <p class="title" id="yt-title">Watch Chuck's Casa on YouTube</p>
-      </div>
-      <span class="btn">Watch now
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </span>
-    </div>
-  </a>
-
-  <a class="card" href="https://jasmineinitiative.org" target="_blank" rel="noopener">
-    <div class="media">
-      <img src="assets/ji-well.jpg" alt="Chuck beside a Jasmine Initiative well plaque in Pakistan" loading="lazy" style="object-position:60% center">
+  <!-- Goal 1: donations -->
+  <section class="card ji" aria-labelledby="ji-title">
+    <a class="media" href="https://jasmineinitiative.org/?utm_source=chuckscasa&amp;utm_medium=linkinbio&amp;utm_content=photo" target="_blank" rel="noopener">
+      <img src="assets/ji-well.jpg" alt="Chuck beside a Jasmine Initiative well plaque in Pakistan" style="object-position:60% 40%">
       <span class="tag">Pakistan</span>
-    </div>
+    </a>
     <div class="body">
       <div>
         <span class="eyebrow">Currently building</span>
-        <p class="title">Jasmine Initiative</p>
+        <h2 class="title" id="ji-title">Jasmine Initiative</h2>
         <p class="desc">Wells, a school and food boxes for families who need them. Follow the story. Change the ending.</p>
       </div>
-      <span class="btn">See the work
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </span>
+      <div class="ctas">
+        <a class="btn btn-pop" id="donate-main" href="https://jasmineinitiative.org/donate/?utm_source=chuckscasa&amp;utm_medium=linkinbio&amp;utm_content=card" target="_blank" rel="noopener">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.6 5c2.1 0 3.6 1.2 5.4 3.1C13.8 6.2 15.3 5 17.4 5 21 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg>
+          Donate
+        </a>
+        <a class="btn btn-ghost" href="https://jasmineinitiative.org/?utm_source=chuckscasa&amp;utm_medium=linkinbio&amp;utm_content=see_work" target="_blank" rel="noopener">See the work</a>
+      </div>
+      <ol class="road" aria-label="Jasmine Initiative progress">
+        <li><b>001</b><span>Wells</span><em>Ongoing</em></li>
+        <li><b>002</b><span>School</span><em>Ongoing</em></li>
+        <li class="soon"><b>003</b><span>Next</span><em>Coming soon</em></li>
+      </ol>
     </div>
-  </a>
+  </section>
+
+  <!-- Goal 2: YouTube subscribers -->
+  <section class="card yt" aria-labelledby="yt-title">
+    <a class="media" id="yt-link" href="https://www.youtube.com/watch?v=ort2onukh9o" target="_blank" rel="noopener" aria-label="Watch the video on YouTube">
+      <img id="yt-thumb" src="https://i.ytimg.com/vi/ort2onukh9o/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/ort2onukh9o/hqdefault.jpg'" alt="">
+      <span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+    </a>
+    <div class="body">
+      <div>
+        <span class="eyebrow">Start here on YouTube</span>
+        <h2 class="title" id="yt-title">Watch my story</h2>
+      </div>
+      <div class="ctas">
+        <a class="btn btn-ink" href="https://www.youtube.com/@chuckscasa?sub_confirmation=1" target="_blank" rel="noopener">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg>
+          Subscribe
+        </a>
+        <a class="btn btn-ghost" id="yt-watch" href="https://www.youtube.com/watch?v=ort2onukh9o" target="_blank" rel="noopener">Watch</a>
+      </div>
+    </div>
+  </section>
 
   <section class="about" aria-labelledby="off-camera">
     <h2 id="off-camera">Off camera</h2>
     <div class="row">
       <span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
-      <span><strong>Real estate</strong>Chuck runs a small real estate development and investment company, with acquisitions and investments primarily in commercial.</span>
+      <span><strong>Real estate</strong>Chuck runs a small real estate development and investment company, primarily operating in the commercial sector.</span>
     </div>
     <div class="row">
       <span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16l-1.5 12h-13z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></span>
@@ -147,27 +163,59 @@
     </div>
   </section>
 
-  <p class="foot">chuckscasa.com</p>
+  <section class="follow" aria-labelledby="follow-h">
+    <h2 id="follow-h">Follow along</h2>
+    <nav class="socials" aria-label="Social links">
+      <a href="https://www.instagram.com/chuckscasa/" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@chuckscasa" aria-label="TikTok" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.4 4.6 5 5"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@chuckscasa" aria-label="YouTube" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg>
+      </a>
+      <a href="mailto:f@fareedmelies.com" aria-label="Email">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+      </a>
+    </nav>
+    <p class="foot">chuckscasa.com</p>
+  </section>
 </main>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <a class="btn btn-pop" tabindex="-1" href="https://jasmineinitiative.org/donate/?utm_source=chuckscasa&amp;utm_medium=linkinbio&amp;utm_content=sticky" target="_blank" rel="noopener">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.6 5c2.1 0 3.6 1.2 5.4 3.1C13.8 6.2 15.3 5 17.4 5 21 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg>
+    Donate to Jasmine Initiative
+  </a>
+</div>
 
 <script>
 (function () {
+  // Video title comes from latest.json (written by the GitHub Action for the pinned video).
   fetch('latest.json', { cache: 'no-cache' })
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (v) {
       if (!v || !v.id) return;
-      var card = document.getElementById('yt-card');
-      var img = document.getElementById('yt-thumb');
-      card.href = 'https://www.youtube.com/watch?v=' + encodeURIComponent(v.id);
-      document.getElementById('yt-title').textContent = v.title || 'Watch the latest video';
-      document.getElementById('yt-eyebrow').textContent = 'New on YouTube';
-      img.alt = v.title || '';
-      img.onerror = function () { img.onerror = null; img.src = 'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg'; };
-      img.src = 'https://i.ytimg.com/vi/' + v.id + '/maxresdefault.jpg';
-      img.hidden = false;
-      document.getElementById('yt-fallback').hidden = true;
+      var url = 'https://www.youtube.com/watch?v=' + encodeURIComponent(v.id);
+      document.getElementById('yt-link').href = url;
+      document.getElementById('yt-watch').href = url;
+      if (v.title) document.getElementById('yt-title').textContent = v.title;
     })
     .catch(function () {});
+
+  // Sticky donate bar: show only after the main Donate button has scrolled out of view.
+  var bar = document.getElementById('sticky');
+  var main = document.getElementById('donate-main');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      var e = entries[0];
+      var passed = !e.isIntersecting && e.boundingClientRect.top < 0;
+      bar.classList.toggle('show', passed);
+      bar.setAttribute('aria-hidden', passed ? 'false' : 'true');
+      bar.querySelector('a').tabIndex = passed ? 0 : -1;
+    }).observe(main);
+  }
 })();
 </script>
 </body>
