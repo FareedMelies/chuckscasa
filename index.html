@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chuck's Casa</title>
 <meta name="description" content="Hi, my name is Chuck. Here's everything you need to know.">
-<meta name="theme-color" content="#F4F4F1">
+<meta name="theme-color" content="#E9E8E3">
 <link rel="canonical" href="https://chuckscasa.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Chuck's Casa">
@@ -20,7 +20,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F4F4F1; --card:#FFFFFF; --line:#E6E6E1; --ink:#0D0D0D;
+    --bg:#E9E8E3; --card:#FFFFFF; --line:#E9E8E3; --ink:#0D0D0D;
     --soft:#3D3D3A; --muted:#6B6B66; --chip:#ECECE7;
     --pop:#FF5B23; --pop-ink:#FFFFFF;
   }
@@ -39,7 +39,7 @@
   h1{margin:0;font-weight:800;font-size:25px;line-height:1.1;letter-spacing:-.03em}
   .lead{margin:3px 0 0;font-size:14px;line-height:1.35;color:var(--soft);font-weight:500}
 
-  .card{display:flex;flex-direction:column;gap:14px;border-radius:24px;background:var(--card);border:1px solid var(--line);padding:10px}
+  .card{display:flex;flex-direction:column;gap:14px;border-radius:24px;background:var(--card);padding:10px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05)}
   .media{position:relative;display:block;width:100%;border-radius:16px;overflow:hidden;background:var(--chip)}
   .media img{width:100%;height:100%;object-fit:cover}
   .ji .media{aspect-ratio:2/1}
@@ -47,12 +47,13 @@
   .play{position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:999px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.25)}
   .tag{position:absolute;left:10px;top:10px;background:rgba(255,255,255,.92);color:var(--ink);font-size:12px;font-weight:600;border-radius:999px;padding:5px 10px}
   .body{padding:0 8px 8px;display:flex;flex-direction:column;gap:12px}
-  .eyebrow{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--muted)}
-  .eyebrow::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--pop)}
+  .eyebrow{display:block;font-size:13px;font-weight:500;color:var(--muted)}
   .title{margin:4px 0 0;font-weight:700;font-size:22px;line-height:1.15;letter-spacing:-.02em}
   .desc{margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--soft)}
 
-  .ctas{display:grid;grid-template-columns:1.4fr 1fr;gap:8px}
+  .ctas{display:flex;flex-direction:column;align-items:stretch;gap:4px}
+  .textlink{align-self:center;font-size:14px;font-weight:500;color:var(--muted);padding:12px 8px;min-height:44px}
+  .textlink:hover{color:var(--ink)}
   .btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:14px;padding:13px 14px;font-size:15px;font-weight:600;min-height:50px;text-align:center}
   .btn svg{width:18px;height:18px;flex-shrink:0}
   .btn-pop{background:var(--pop);color:var(--pop-ink)}
@@ -68,7 +69,7 @@
   .road em::before{content:"";width:6px;height:6px;border-radius:999px;background:#2FA55A}
   .road li.soon em::before{background:#B9B9B3}
 
-  .about{margin-top:6px;border-radius:24px;background:var(--card);border:1px solid var(--line);padding:22px 20px;display:flex;flex-direction:column;gap:16px}
+  .about{margin-top:6px;border-radius:24px;background:var(--card);box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);padding:22px 20px;display:flex;flex-direction:column;gap:16px}
   .about h2,.follow h2{margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
   .row{display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.45;color:var(--soft)}
   .ico{flex-shrink:0;width:36px;height:36px;border-radius:12px;background:var(--chip);display:flex;align-items:center;justify-content:center;color:var(--ink)}
@@ -77,12 +78,12 @@
 
   .follow{display:flex;flex-direction:column;align-items:center;gap:12px;padding:10px 0 0}
   .socials{display:flex;gap:8px}
-  .socials a{width:46px;height:46px;border-radius:999px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .socials a{width:46px;height:46px;border-radius:999px;background:var(--card);display:flex;align-items:center;justify-content:center}
   .socials svg{width:19px;height:19px}
   .foot{margin:4px 0 0;text-align:center;font-size:12px;color:var(--muted)}
 
   /* Sticky donate bar: appears once the main donate button scrolls away */
-  .sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--bg) 70%,rgba(244,244,241,0));transform:translateY(110%);transition:transform .25s ease}
+  .sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--bg) 70%,rgba(233,232,227,0));transform:translateY(110%);transition:transform .25s ease}
   .sticky.show{transform:none}
   .sticky a{max-width:412px;margin:0 auto;box-shadow:0 10px 30px rgba(255,91,35,.35)}
   @media (prefers-reduced-motion:reduce){.sticky{transition:none}}
@@ -116,13 +117,8 @@
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.6 5c2.1 0 3.6 1.2 5.4 3.1C13.8 6.2 15.3 5 17.4 5 21 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg>
           Donate
         </a>
-        <a class="btn btn-ghost" href="https://jasmineinitiative.org/?utm_source=chuckscasa&amp;utm_medium=linkinbio&amp;utm_content=see_work" target="_blank" rel="noopener">See the work</a>
+        <a class="textlink" href="https://jasmineinitiative.org/?utm_source=chuckscasa&amp;utm_medium=linkinbio&amp;utm_content=see_work" target="_blank" rel="noopener">See the work →</a>
       </div>
-      <ol class="road" aria-label="Jasmine Initiative progress">
-        <li><b>001</b><span>Wells</span><em>Ongoing</em></li>
-        <li><b>002</b><span>School</span><em>Ongoing</em></li>
-        <li class="soon"><b>003</b><span>Next</span><em>Coming soon</em></li>
-      </ol>
     </div>
   </section>
 
@@ -142,7 +138,7 @@
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg>
           Subscribe
         </a>
-        <a class="btn btn-ghost" id="yt-watch" href="https://www.youtube.com/watch?v=ort2onukh9o" target="_blank" rel="noopener">Watch</a>
+        <a class="textlink" id="yt-watch" href="https://www.youtube.com/watch?v=ort2onukh9o" target="_blank" rel="noopener">Watch the video →</a>
       </div>
     </div>
   </section>
