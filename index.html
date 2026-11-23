@@ -44,7 +44,7 @@
   .media img{width:100%;height:100%;object-fit:cover}
   .ji .media{aspect-ratio:2/1}
   .yt .media{aspect-ratio:16/9}
-  .play{position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:999px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+  .play{position:absolute;inset:0;margin:auto;width:68px;height:48px;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3))}
   .tag{position:absolute;left:10px;top:10px;background:rgba(255,255,255,.92);color:var(--ink);font-size:12px;font-weight:600;border-radius:999px;padding:5px 10px}
   .body{padding:0 8px 8px;display:flex;flex-direction:column;gap:12px}
   .eyebrow{display:block;font-size:13px;font-weight:500;color:var(--muted)}
@@ -62,6 +62,7 @@
   .btn svg{width:18px;height:18px;flex-shrink:0}
   .btn-pop{background:var(--pop);color:var(--pop-ink)}
   .btn-ink{background:var(--ink);color:#fff}
+  .btn-yt{border-radius:999px}
   .btn-ghost{background:var(--chip);color:var(--ink)}
 
   /* Mini roadmap: builds trust right next to the donate ask */
@@ -133,7 +134,7 @@
   <section class="card yt" aria-labelledby="yt-title">
     <a class="media" id="yt-link" href="https://www.youtube.com/watch?v=ort2onukh9o" target="_blank" rel="noopener" aria-label="Watch the video on YouTube">
       <img id="yt-thumb" src="https://i.ytimg.com/vi/ort2onukh9o/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/ort2onukh9o/hqdefault.jpg'" alt="">
-      <span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="play" aria-hidden="true"><svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.3.3 34 .3 34 .3s-21.3 0-26.6 1.4c-2.9.8-5.1 3.1-5.9 6C.1 13 .1 24 .1 24s0 11 1.4 16.3c.8 2.9 3 5.2 5.9 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.6-1.4c2.9-.8 5.1-3.1 5.9-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#FF0000"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
     </a>
     <div class="body">
       <div>
@@ -141,8 +142,8 @@
         <h2 class="title" id="yt-title">Watch my story</h2>
       </div>
       <div class="ctas">
-        <a class="btn btn-ink" href="https://www.youtube.com/@chuckscasa?sub_confirmation=1" target="_blank" rel="noopener">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg>
+        <a class="btn btn-ink btn-yt" href="https://www.youtube.com/@chuckscasa?sub_confirmation=1" target="_blank" rel="noopener">
+          <svg aria-hidden="true" width="24" height="17" viewBox="0 0 68 48" style="width:24px;height:17px"><path d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.3.3 34 .3 34 .3s-21.3 0-26.6 1.4c-2.9.8-5.1 3.1-5.9 6C.1 13 .1 24 .1 24s0 11 1.4 16.3c.8 2.9 3 5.2 5.9 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.6-1.4c2.9-.8 5.1-3.1 5.9-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#FF0000"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
           Subscribe
         </a>
         <a class="textlink" id="yt-watch" href="https://www.youtube.com/watch?v=ort2onukh9o" target="_blank" rel="noopener">Watch the video →</a>
