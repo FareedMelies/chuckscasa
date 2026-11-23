@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chuck's Casa</title>
+<meta name="description" content="Hi, my name is Chuck. Here's everything you need to know.">
+<meta name="theme-color" content="#F4F4F1">
+<link rel="canonical" href="https://chuckscasa.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chuck's Casa">
+<meta property="og:description" content="Hi, my name is Chuck. Here's everything you need to know.">
+<meta property="og:url" content="https://chuckscasa.com/">
+<meta property="og:image" content="https://chuckscasa.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/chuck.jpg">
+<link rel="apple-touch-icon" href="assets/chuck.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F4F1; --card:#FFFFFF; --line:#E6E6E1; --ink:#0D0D0D;
+    --soft:#3D3D3A; --muted:#6B6B66; --chip:#ECECE7;
+    --pop:#FF5B23;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Geist,Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  svg{display:block}
+  .wrap{max-width:440px;margin:0 auto;padding:48px 16px calc(40px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:16px}
+
+  .head{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;padding:0 8px 8px}
+  .avatar{width:96px;height:96px;border-radius:999px;object-fit:cover;box-shadow:0 0 0 4px var(--card),0 8px 24px rgba(0,0,0,.12)}
+  h1{margin:0;font-weight:800;font-size:34px;line-height:1.05;letter-spacing:-.035em}
+  .lead{margin:-6px 0 0;font-size:17px;line-height:1.4;color:var(--soft);font-weight:500}
+  .socials{display:flex;gap:8px}
+  .socials a{width:44px;height:44px;border-radius:999px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+  .socials a:hover,.socials a:focus-visible{background:var(--ink);color:#fff}
+  .socials svg{width:19px;height:19px}
+
+  .card{display:flex;flex-direction:column;gap:14px;border-radius:24px;background:var(--card);border:1px solid var(--line);padding:10px;transition:transform .15s,box-shadow .15s}
+  .card:hover,.card:focus-visible{box-shadow:0 10px 30px rgba(0,0,0,.08)}
+  .card:active{transform:scale(.99)}
+  .media{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--chip)}
+  .media img{width:100%;height:100%;object-fit:cover}
+  .play{position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:999px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+  .tag{position:absolute;left:10px;top:10px;background:rgba(255,255,255,.92);color:var(--ink);font-size:12px;font-weight:600;border-radius:999px;padding:5px 10px}
+  .body{padding:0 8px 8px;display:flex;flex-direction:column;gap:14px}
+  .eyebrow{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--muted)}
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--pop)}
+  .title{margin:4px 0 0;font-weight:700;font-size:22px;line-height:1.15;letter-spacing:-.02em}
+  .desc{margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--soft)}
+  .btn{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--ink);color:#fff;border-radius:16px;padding:14px 18px;font-size:15px;font-weight:600;min-height:48px}
+
+  .about{margin-top:8px;border-radius:24px;background:var(--card);border:1px solid var(--line);padding:22px 20px;display:flex;flex-direction:column;gap:16px}
+  .about h2{margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .row{display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.45;color:var(--soft)}
+  .ico{flex-shrink:0;width:36px;height:36px;border-radius:12px;background:var(--chip);display:flex;align-items:center;justify-content:center;color:var(--ink)}
+  .ico svg{width:18px;height:18px}
+  .row strong{display:block;color:var(--ink);font-weight:600}
+
+  .foot{margin:8px 0 0;text-align:center;font-size:12px;color:var(--muted)}
+  @media (prefers-reduced-motion:reduce){.card,.socials a{transition:none}.card:active{transform:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="head">
+    <img class="avatar" src="assets/chuck.jpg" alt="Chuck" width="96" height="96">
+    <h1>Hi, my name is Chuck.</h1>
+    <p class="lead">Here's everything you need to know 👇</p>
+    <nav class="socials" aria-label="Social links">
+      <a href="https://www.youtube.com/@chuckscasa" aria-label="YouTube" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.instagram.com/chuckscasa/" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@chuckscasa" aria-label="TikTok" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.4 4.6 5 5"/></svg>
+      </a>
+      <a href="mailto:f@fareedmelies.com" aria-label="Email">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Latest long-form video. Filled from latest.json, which a GitHub Action refreshes (Shorts skipped). Falls back to the channel. -->
+  <a class="card" id="yt-card" href="https://www.youtube.com/@chuckscasa/videos" target="_blank" rel="noopener">
+    <div class="media">
+      <img id="yt-thumb" alt="" hidden>
+      <span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+    </div>
+    <div class="body">
+      <div>
+        <span class="eyebrow" id="yt-eyebrow">On YouTube</span>
+        <p class="title" id="yt-title">Watch Chuck's Casa on YouTube</p>
+      </div>
+      <span class="btn">Watch now
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>
+  </a>
+
+  <a class="card" href="https://jasmineinitiative.org" target="_blank" rel="noopener">
+    <div class="media">
+      <img src="assets/ji-well.jpg" alt="Chuck beside a Jasmine Initiative well plaque in Pakistan" loading="lazy" style="object-position:60% center">
+      <span class="tag">Pakistan</span>
+    </div>
+    <div class="body">
+      <div>
+        <span class="eyebrow">Currently building</span>
+        <p class="title">Jasmine Initiative</p>
+        <p class="desc">Wells, a school and food boxes for families who need them. Follow the story. Change the ending.</p>
+      </div>
+      <span class="btn">See the work
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>
+  </a>
+
+  <section class="about" aria-labelledby="off-camera">
+    <h2 id="off-camera">Off camera</h2>
+    <div class="row">
+      <span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
+      <span><strong>Real estate</strong>Chuck runs a small real estate development and investment company, with acquisitions and investments primarily in commercial.</span>
+    </div>
+    <div class="row">
+      <span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16l-1.5 12h-13z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></span>
+      <span><strong>D2C operator</strong>Chuck is also a seasoned D2C operator with 2 successful exits.</span>
+    </div>
+    <div class="row">
+      <span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <span><strong>100% riba-free</strong>Every one of his companies and property acquisitions runs without interest.</span>
+    </div>
+  </section>
+
+  <p class="foot">chuckscasa.com</p>
+</main>
+
+<script>
+(function () {
+  fetch('latest.json', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (v) {
+      if (!v || !v.id) return;
+      var card = document.getElementById('yt-card');
+      var img = document.getElementById('yt-thumb');
+      card.href = 'https://www.youtube.com/watch?v=' + encodeURIComponent(v.id);
+      document.getElementById('yt-title').textContent = v.title || 'Watch the latest video';
+      document.getElementById('yt-eyebrow').textContent = 'New on YouTube';
+      img.alt = v.title || '';
+      img.onerror = function () { img.onerror = null; img.src = 'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg'; };
+      img.src = 'https://i.ytimg.com/vi/' + v.id + '/maxresdefault.jpg';
+      img.hidden = false;
+    })
+    .catch(function () {});
+})();
+</script>
+</body>
+</html>
